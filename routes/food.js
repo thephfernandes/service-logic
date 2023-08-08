@@ -30,6 +30,26 @@ let inventory = [
 		id: 6,
 		product: "strawberries",
 		quantity: 12
+	},
+	{
+		id: 7,
+		product: "kiwi",
+		quantity: 9
+	},
+	{
+		id: 8,
+		product: "pear",
+		quantity: 18
+	},
+	{
+		id: 9,
+		product: "pineapple",
+		quantity: 7
+	},
+	{
+		id: 10,
+		product: "peach",
+		quantity: 14
 	}
 ];
 
