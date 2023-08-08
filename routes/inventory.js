@@ -1,46 +1,13 @@
 const router = require('express').Router();
-
-let inventory = [
-	{
-		id: 1,
-		product: "apple",
-		quantity: 10
-	},
-	{
-		id: 2,
-		product: "banana",
-		quantity: 15
-	},
-	{
-		id: 3,
-		product: "orange",
-		quantity: 20
-	},
-	{
-		id: 4,
-		product: "grapes",
-		quantity: 8
-	},
-	{
-		id: 5,
-		product: "watermelon",
-		quantity: 5
-	},
-	{
-		id: 6,
-		product: "strawberries",
-		quantity: 12
-	}
-];
-
+const inventoryData = require('../data/inventoryData');
 
 router.get("/inventory", (req, res) => {
-	res.json(inventory);
+	res.json(inventoryData);
 });
 
 router.get("/inventory/:id", (req, res) => {
 	const itemId = parseInt(req.params.id);
-	const item = inventory.find(item => item.id === itemId);
+	const item = inventoryData.find(item => item.id === itemId);
 
 	if (item) {
 		res.json(item);
@@ -51,19 +18,19 @@ router.get("/inventory/:id", (req, res) => {
 
 router.post("/inventory", (req, res) => {
 	const newItem = req.body;
-	newItem.id = inventory.length + 1;
-	inventory.push(newItem);
+	newItem.id = inventoryData.length + 1;
+	inventoryData.push(newItem);
 	res.status(201).json(newItem);
 });
 
 router.put("/inventory/:id", (req, res) => {
 	const itemId = parseInt(req.params.id);
 	const updatedItem = req.body;
-	const index = inventory.findIndex(item => item.id === itemId);
+	const index = inventoryData.findIndex(item => item.id === itemId);
 
 	if (index !== -1) {
-		inventory[index] = { ...inventory[index], ...updatedItem };
-		res.json(inventory[index]);
+		inventoryData[index] = { ...inventoryData[index], ...updatedItem };
+		res.json(inventoryData[index]);
 	} else {
 		res.status(404).json({ message: "Item not found" });
 	}
@@ -71,10 +38,10 @@ router.put("/inventory/:id", (req, res) => {
 
 router.delete("/inventory/:id", (req, res) => {
 	const itemId = parseInt(req.params.id);
-	const index = inventory.findIndex(item => item.id === itemId);
+	const index = inventoryData.findIndex(item => item.id === itemId);
 
 	if (index !== -1) {
-		const deletedItem = inventory.splice(index, 1);
+		const deletedItem = inventoryData.splice(index, 1);
 		res.json(deletedItem[0]);
 	} else {
 		res.status(404).json({ message: "Item not found" });
