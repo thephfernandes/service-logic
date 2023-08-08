@@ -16,6 +16,17 @@ router.get("/inventory/:id", (req, res) => {
 	}
 });
 
+router.get("/inventory/:id", (req, res) => {
+	const itemId = parseInt(req.params.id);
+	const item = inventoryData.find(item => item.id === itemId);
+
+	if (item) {
+		res.json(item);
+	} else {
+		res.status(404).json({ message: "Item not found" });
+	}
+});
+
 router.post("/inventory", (req, res) => {
 	const newItem = req.body;
 	newItem.id = inventoryData.length + 1;
