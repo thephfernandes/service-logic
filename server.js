@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
-const foodRoutes = require('./routes/food');
+const foodRoutes = require('./routes/inventory');
 
 const port = process.env.PORT || 8000;
 
-app.use("/", foodRoutes);
+app.use("/api", foodRoutes);
 
 app.get("/", (req, res) => {
 	res.send("Nao tem nada por aqui, tente dar oi ou tchau!")
