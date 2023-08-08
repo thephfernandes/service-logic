@@ -9,7 +9,7 @@ let inventory = [
 	{
 		id: 2,
 		product: "banana",
-		quantity: 15
+		quantity: 250
 	},
 	{
 		id: 3,
