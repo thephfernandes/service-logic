@@ -4,7 +4,7 @@ let inventory = [
 	{
 		id: 1,
 		product: "apple",
-		quantity: 0
+		quantity: 100
 	},
 	{
 		id: 2,
