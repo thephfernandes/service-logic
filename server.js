@@ -7,7 +7,7 @@ const port = process.env.PORT || 8000;
 app.use("/api", foodRoutes);
 
 app.get("/", (req, res) => {
-	res.send("Nao tem nada por aqui, tente dar oi ou tchau!")
+	res.send("Nao tem nada por aqui, tente dar czsx \lçjn asdljnvasçnjolsdfçñjloi ou tchau!")
 });
 
 app.get("/oi", (req, res) => {
