@@ -18,8 +18,10 @@ app.get("/tchau", (req, res) => {
 	res.send("Goodbye earth!");
 });
 
+app.get("/ola", (req, res) => {
+	res.send("Olá!");
+});
+
 app.listen(port, () => {
 	console.log("listening on port %s", port);
 });
-
-
