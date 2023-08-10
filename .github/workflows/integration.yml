@@ -6,7 +6,7 @@ on:
           - main
           - 'releases/**'
         tags: 
-          - 'v*.*.*''
+          - 'v*.*.*'
 
 jobs:
     build:
