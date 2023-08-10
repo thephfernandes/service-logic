@@ -42,6 +42,7 @@ jobs:
       if: startsWith(github.ref, 'refs/tags/')
 
   build-and-push-image:
+    name: Publish docker image to Github Packages
     runs-on: ubuntu-latest
 
     permissions:
