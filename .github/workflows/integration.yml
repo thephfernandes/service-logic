@@ -2,9 +2,11 @@ name: CI/CD
 
 on:
     push:
-        branches: [ main ]
+        branches:
+          - main
+          - 'releases/**'
         tags: 
-          - "v*.*.*"
+          - 'v*.*.*''
 
 jobs:
     build:
@@ -24,7 +26,7 @@ jobs:
           - run: npm test
 
     release:
-      - name: Create project release
+        name: Create project release
         runs-on: ubuntu-latest
 
         steps:
