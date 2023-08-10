@@ -5,15 +5,17 @@ on:
         branches: [ main ]
 
 jobs:
-    deploy:
+    test:
         runs-on: self-hosted
 
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js 18.x
-        uses: actions/setup-node@v1
-        with:
-            node-version: 18.x
-      - run: npm install
-      - run: npm run build --if-present
-      - run: npm test
+        steps:
+          - name: Check out code
+            uses: actions/checkout@v2
+
+          - name: Use Node.js 18.x
+            uses: actions/setup-node@v1
+            with:
+                node-version: 18.x
+          - run: npm install
+          - run: npm run build --if-present
+          - run: npm test
